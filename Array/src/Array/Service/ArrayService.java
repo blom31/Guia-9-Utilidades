@@ -46,9 +46,9 @@ public class ArrayService {
         
                 System.arraycopy(arregloA, 0, arregloB, 0, 10);
                 Arrays.fill(arregloB, 10,20, (int)0.5);
-                for (int i = 0; i < arregloB.length; i++) {
-                    System.out.print("[ " + arregloB[i]);
-            }
+                /*for (int i = 0; i < arregloB.length; i++) {
+                    System.out.print("[ " + arregloB[i]);  llamar el método mostrar
+            }*/
         }
             
 }

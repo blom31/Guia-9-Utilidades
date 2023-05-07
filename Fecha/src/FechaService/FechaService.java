@@ -33,8 +33,34 @@ public class FechaService {
     
     public int dif(Date fechaNac, Date fechaActual){
         
-       int edad = fechaActual.getYear()-fechaNac.getYear();
-        return edad;
+       //int edad = fechaActual.getYear()-fechaNac.getYear();
+       
+       /*public int diferencia(Date d1, Date d2) {        método mas simplificado/
+        int difAnio = d2.getYear() - d1.getYear();
+        int difMes = d2.getMonth() - d1.getMonth();
+        int difDia = d2.getDay() - d1.getDay();
+        if ((difMes < 0) || ((difMes == 0) && (difDia < 0))) {
+            return difAnio - 1;
+        } else {
+            return difAnio;*/
+        
+       int dif =0;
+        if (fechaNac.getMonth()==fechaActual.getMonth()) {
+            if (fechaNac.getDay()<=fechaActual.getDay()) {
+                dif=(int)(fechaActual.getYear()-fechaNac.getYear());
+                
+            }else{
+                dif=(int) (fechaActual.getYear()-fechaNac.getYear());
+            }
+            
+        }else if(fechaNac.getMonth()<fechaActual().getMonth()){
+            dif=(int)(fechaActual.getYear()-fechaNac.getYear());
+        }else{
+            dif=(int) (fechaActual.getYear()-fechaNac.getYear());
+        }
+       
+       return dif;
+        
     }
 }
 

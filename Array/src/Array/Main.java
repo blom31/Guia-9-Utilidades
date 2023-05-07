@@ -8,7 +8,7 @@ public class Main {
 
    
     public static void main(String[] args) {
-        int[] A = new int[50];
+        int[] A = new int[50];  /*declarar como double*/
         int[] B= new int[20];
         
         ArrayService.inicializarA(A);
