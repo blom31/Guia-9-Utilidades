@@ -30,16 +30,37 @@ public class PersonaService {
         return new Persona (name, fechaN);
     }
     
-    public int calcularEdad(Persona persona){
-        
-        
-        
+    //Método calculala duferecia
+    
+    public int diferecia(Date fechaNacimiento, Date fechaAct){
+        long milisegundoporAnio= 1000L*60*60*24*365;
+        long diferenciaMilisegundos = fechaAct.getTime()-fechaNacimiento.getTime();
+        int edad = (int)(diferenciaMilisegundos/milisegundoporAnio);
+        return edad; 
         
     }
-}
-//Crear una clase PersonaService, en el paquete servicio, con los siguientes métodos:
 
 //Método calcularEdad que calcule la edad del usuario utilizando el atributo de fecha de nacimiento y la fecha actual.
-//Método menorQue recibe como parámetro una Persona y una edad. Retorna true si la persona es menor que la edad consultada 
+    public int calcularEdad(Persona persona){
+        
+        Date fechaAct = new Date();
+        
+       return diferecia(persona.getFechaN(), fechaAct);
+    }
+    
+    //Método menorQue recibe como parámetro una Persona y una edad. Retorna true si la persona es menor que la edad consultada 
 //o false en caso contrario.
-//Método mostrarPersona que muestra la información de la persona deseada.
+    
+    public boolean menorQue(Persona persona, int edad){
+       int edadPersona = calcularEdad(persona);
+       return edadPersona > edad;
+       
+    }
+    //Método mostrarPersona que muestra la información de la persona deseada.
+    public void mostrarPersona(Persona persona,int edad ){
+        
+        System.out.println("La edad de : " + persona.getName()+ " es: " + edad);
+}
+}
+
+
