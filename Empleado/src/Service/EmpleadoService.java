@@ -1,26 +1,64 @@
 package Service;
 
 import Clase.Empleado;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class EmpleadoService {
+
+    Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
+    public Empleado[] crearEmpleado(Empleado[] emple) {
+
+        for (int i = 0; i < emple.length; i++) {
+            System.out.println("Registre el empleado nro: " + (i+1));
+            String nombre = leer.next();
+            System.out.println("Ingrese el salario de " + nombre);
+            double salario = leer.nextDouble();
+            Empleado empleado = new Empleado(nombre, salario);
+            emple[i] = empleado;
+        }
+        return emple;
+    }
+
+    //1. Calcular y mostrar el salario promedio de todos los empleados.
+    public double promedio(Empleado[] emple) {
+
+        double prom, cont = 0;
+        for (int i = 0; i < emple.length; i++) {
+            cont += emple[i].getSalario();
+        }
+        prom = cont / emple.length;
+        return prom;
+    }
+    //Retornar otro arreglo con los nombres de los empleados que tienen un
+//salario mayor al promedio.
+
+    public String[] salarioMayor(Empleado[] emple) {
+
+        double promedio = promedio(emple);
+        int cont = 0, indice = 0;
+        for (int i = 0; i < emple.length; i++) {
+            if (emple[i].getSalario() > promedio) {
+                cont++;
+            }
+        }
+        String[] salarioM = new String[cont];
+
+        for (int i = 0; i < emple.length; i++) {
+            if (emple[i].getSalario() > promedio) {
+                salarioM[indice] = emple[i].getName();
+                indice++;
+            }
+        }
+        return salarioM;
+
+    }
     
-     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-     
-     
-     public Empleado[] crearEmpleado(Empleado[] emple){
-         
-         for (int i = 0; i < emple.length; i++) {
-             System.out.println("Registre el empleado nro: "+1);
-             String nombre = leer.next();
-             System.out.println("Ingrese el salario de "+nombre);
-             double salario=leer.nextDouble();
-             Empleado[] empleado = new Empleado[](nombre, salario);
-             
-         }
-         
-         
-     }
+    public void mostrar(String[] salarioM){
+        
+        System.out.println(Arrays.toString(salarioM));
+    }
     
 }
 //Imagina que tienes una lista de empleados en una pequeña empresa, y deseas

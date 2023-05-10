@@ -12,6 +12,12 @@ public class main {
        
         Empleado[] emple = new Empleado[6];
         
+        es.crearEmpleado(emple);
+        System.out.println(es.promedio(emple));
+        es.salarioMayor(emple);
+      es.mostrar(es.salarioMayor(emple));
+        
+        
     }
     
 }
